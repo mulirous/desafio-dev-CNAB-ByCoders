@@ -50,6 +50,7 @@ public class CNABService {
         transaction.setCode(type.getCode());
         transaction.setTransactionNature(type.getNature());
         transaction.setTransactionDescription(type.getDescription());
+        transaction.setTransactionSignal(type.getSignal());
 
         // From File
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyyMMdd");
@@ -63,7 +64,7 @@ public class CNABService {
         transaction.setHour(LocalTime.parse(line.substring(42, 48), timeFormatter));
 
         transaction.setStoreOwner(line.substring(48, 62));
-        transaction.setStoreName(line.substring(62, 81).trim());
+        transaction.setStoreName(line.substring(62, 80));
 
         return transaction;
     }
