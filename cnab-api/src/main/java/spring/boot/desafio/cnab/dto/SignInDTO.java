@@ -1,4 +1,4 @@
 package spring.boot.desafio.cnab.dto;
 
-public record SignInDTO(String login, String password) {
+public record SignInDTO(String email, String password) {
 }

@@ -22,7 +22,7 @@ public class TokenService {
             Algorithm algorithm = Algorithm.HMAC256(secret); // Encriptação para gerar o token
             String token = JWT.create()
                     .withIssuer("auth-api") // Identificação de quem gerou o token
-                    .withSubject(user.getLogin()) // Usuário que recebe o token para ao descriptografar identificar o ususário
+                    .withSubject(user.getEmail()) // Usuário que recebe o token para ao descriptografar identificar o ususário
                     .withExpiresAt(generateExpirationDate()) // Tempo de expiração
                     .sign(algorithm); // Algoritmo de encriptação
 

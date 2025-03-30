@@ -6,7 +6,7 @@ export const metadata: Metadata = {
 	description: "Aplicação Next.js com RootLayout",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function ProtectedLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html
 			lang="pt-BR"

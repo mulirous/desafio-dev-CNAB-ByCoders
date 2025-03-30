@@ -28,8 +28,8 @@ public class SecurityFilter extends OncePerRequestFilter {// Extende uma interfa
         var token = this.recoverToken(request);
 
         if (token != null) {
-            var login = tokenService.validateToken(token); // Valida o token
-            UserDetails userDetails = userRepository.findByLogin(login); // Encontra o Usuário
+            var email = tokenService.validateToken(token); // Valida o token
+            UserDetails userDetails = userRepository.findByEmail(email); // Encontra o Usuário
 
             var authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities()); // Instancia a classe com os dados que o spring precisa
             SecurityContextHolder.getContext().setAuthentication(authentication); // É feita a autenticação e é salva no contexto da aplicação, caso contrário, salva nada

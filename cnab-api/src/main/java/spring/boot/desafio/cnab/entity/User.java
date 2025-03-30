@@ -27,8 +27,8 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column(name="login")
-    private String login;
+    @Column(name="name")
+    private String name;
 
     @Column(name="password")
     private String password;
@@ -45,8 +45,8 @@ public class User implements UserDetails {
     @Column(name="updated_at")
     private LocalDateTime updatedAt;
 
-    public User(String login, String encryptedPassword, UserRole role, String email) {
-        this.login = login;
+    public User(String name, String encryptedPassword, UserRole role, String email) {
+        this.name = name;
         this.password = encryptedPassword;
         this.role = role;
         this.email = email;
@@ -62,7 +62,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return this.getLogin();
+        return this.getEmail();
     }
 
     @Override
